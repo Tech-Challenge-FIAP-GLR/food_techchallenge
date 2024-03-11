@@ -38,7 +38,7 @@ jobs:
         
     - name: Build the Docker image
       working-directory: ./food_techchallenge
-      run: docker build . --file Dockerfile --tag raulima1/food_techchalleng
+      run: docker build . --file Dockerfile --tag raulima1/food_techchallenge
       
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/food_techchallenge
