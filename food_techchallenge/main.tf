@@ -1,6 +1,6 @@
 ###### root/main.tf
 module "eks" {
-  source                  = "./eks"
+  source                  = "./module/eks"
   aws_public_subnet       = module.vpc.aws_public_subnet
   vpc_id                  = module.vpc.vpc_id
   cluster_name            = "module-eks-${random_string.suffix.result}"
@@ -16,7 +16,7 @@ module "eks" {
 }
 
 module "vpc" {
-  source                  = "./vpc"
+  source                  = "./module/vpc"
   tags                    = "fiaptechchallenge"
   instance_tenancy        = "default"
   vpc_cidr                = "10.0.0.0/16"
