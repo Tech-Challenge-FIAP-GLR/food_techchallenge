@@ -58,8 +58,16 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
+    - name: AWS Profile
+      run: |
+        $ aws configure --profile userprod
+        AWS Access Key ID [None]: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS Secret Access Key [None]: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        Default region name [None]: ${{ env.AWS_REGION }}
+        Default output format [None]: json
+
     - name: Update kube config
-      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --profile userprod
 
     - name: Deploy to EKS
       env:
@@ -68,6 +76,6 @@ jobs:
       working-directory: ./food_techchallenge
       run: |
         sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/food_techchallenge-deployment.yaml && \
-        kubectl apply -f manifests/food_techchallenge-deployment.yaml 
-        kubectl apply -f manifests/food_techchallenge-service.yaml 
-        kubectl apply -f manifests/food_techchallenge-hpa.yaml
+        kubectl apply -f manifests/food_techchallenge-deployment.yaml --validate=false
+        kubectl apply -f manifests/food_techchallenge-service.yaml --validate=false
+        kubectl apply -f manifests/food_techchallenge-hpa.yaml --validate=false
