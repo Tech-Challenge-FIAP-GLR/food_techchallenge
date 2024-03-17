@@ -21,7 +21,7 @@ jobs:
   Api:
     needs: Apply
     uses: Tech-Challenge-FIAP-GLR/food_techchallenge/.github/workflows/api.yml@main
-     with:
+    with:
       gh_environment: TFC_API_TOKEN
     secrets:
       cli_config_credentials_token: ${{ secrets.TFC_API_TOKEN }}
