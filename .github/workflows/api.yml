@@ -71,3 +71,4 @@ jobs:
         kubectl apply -f manifests/food_techchallenge-deployment.yaml --validate=false
         kubectl apply -f manifests/food_techchallenge-service.yaml --validate=false
         kubectl apply -f manifests/food_techchallenge-hpa.yaml --validate=false
+#        kubectl apply -f manifests/food_techchallenge-hpa.yaml --validate=false
