@@ -65,6 +65,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
+      working-directory: ./food_techchallenge
       run: |
         kubectl apply -f manifests/food_techchallenge-deployment.yaml --validate=false
         kubectl apply -f manifests/food_techchallenge-service.yaml --validate=false
