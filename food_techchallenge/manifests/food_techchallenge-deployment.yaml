@@ -24,7 +24,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: '170593'
         - name: food-techchallenge-container-app
-          image: 851725207646.dkr.ecr.us-east-2.amazonaws.com/techchallenge:a000abe
+          image: 851725207646.dkr.ecr.us-east-2.amazonaws.com/techchallenge:latest
           ports:
             - containerPort: 8080
           env:
