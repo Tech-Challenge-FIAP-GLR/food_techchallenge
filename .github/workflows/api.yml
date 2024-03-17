@@ -58,14 +58,6 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-    - name: AWS Profile
-      run: |
-        $ aws configure --profile userprod
-        AWS Access Key ID [None]: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS Secret Access Key [None]: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        Default region name [None]: ${{ env.AWS_REGION }}
-        Default output format [None]: json
-
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --profile userprod
 
