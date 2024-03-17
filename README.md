@@ -5,8 +5,14 @@ O projeto é uma API backend de fast-food, a API conta com todos os métodos nec
 ## Desenho da arquitetura
 ![Diagrama sem nome drawio](https://github.com/lukkas-lax/food_techchallenge/assets/77997696/8246d4d6-59fd-47fd-b621-719a73e83282)
 
+## Pré-Requisitos para chamada na AWS
+1. Ter qualquer software para fazer requisições de API (ex: Postman)
+2. Link para autenticação da API
+3. Link para requisições da API
 
-## Pré-Requisitos
+obs: Itens 2 e 3 na Collection:(https://github.com/lukkas-lax/food_techchallenge/blob/master/Tech%20Challenge%20Final.postman_collection.json)
+
+## Pré-Requisitos para chamada local
 1. Java 21
 2. Maven 4.0.0
 3. Kubectl
