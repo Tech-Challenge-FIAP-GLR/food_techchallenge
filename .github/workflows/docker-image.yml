@@ -42,6 +42,7 @@ jobs:
       
     # - name: Docker Push
     #   run: docker push ${{secrets.DOCKER_USER}}/food_techchallenge
+    
 
     - name: Set short git commit SHA
       id: commit
