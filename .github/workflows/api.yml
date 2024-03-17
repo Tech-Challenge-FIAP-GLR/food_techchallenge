@@ -58,12 +58,6 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-    - name: AWS Profile
-      run: |
-        aws configure set region ${{ env.AWS_REGION }} --profile userprod
-        aws configure set role_arn arn:aws:iam::851725207646:role/eks-cluster-fiaptechchallenge --profile userprod
-        aws configure set source_profile default --profile userprod
-
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION --profile userprod
 
