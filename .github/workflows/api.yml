@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  ECR_REPOSITORY: techchallenge
+  EKS_CLUSTER_NAME: module-eks-Ieisn
+  AWS_REGION: us-east-2
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,7 +43,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: ${{ env.AWS_REGION }}
           
     - name: Login to Amazon ECR
       id: login-ecr
@@ -48,6 +53,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
+      working-directory: ./food_techchallenge
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -59,7 +65,9 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
+      working-directory: ./food_techchallenge
       run: |
-        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/hello-app-deployment.yaml && \
-        kubectl apply -f manifests/hello-app-deployment.yaml
-        kubectl apply -f manifests/hello-app-service.yaml
+        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/food_techchallenge-deployment.yaml && \
+        kubectl apply -f manifests/food_techchallenge-deployment.yaml 
+        kubectl apply -f manifests/food_techchallenge-service.yaml 
+        kubectl apply -f manifests/food_techchallenge-hpa.yaml
