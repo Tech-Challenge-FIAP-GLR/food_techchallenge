@@ -4,7 +4,7 @@ on:
 
 jobs:
   Plan:
-    uses: Tech-Challenge-FIAP-GLR/food_techchallenge/.github/workflows/aws_tf_plan.yml@main
+    uses: Tech-Challenge-FIAP-GLR/food_techchallenge/.github/workflows/aws_tf_plan.yml@master
     with:
       gh_environment: TFC_API_TOKEN
     secrets:
@@ -12,7 +12,7 @@ jobs:
 
   Apply:
     needs: Plan
-    uses: Tech-Challenge-FIAP-GLR/food_techchallenge/.github/workflows/aws_tf_appy.yml@main
+    uses: Tech-Challenge-FIAP-GLR/food_techchallenge/.github/workflows/aws_tf_appy.yml@master
     with:
       gh_environment: TFC_API_TOKEN
     secrets:
