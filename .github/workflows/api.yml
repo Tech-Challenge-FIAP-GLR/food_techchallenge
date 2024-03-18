@@ -84,3 +84,5 @@ jobs:
         kubectl apply -f https://raw.githubusercontent.com/Tech-Challenge-FIAP-GLR/food_techchallenge/master/food_techchallenge/manifests/food_techchallenge-deployment.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/Tech-Challenge-FIAP-GLR/food_techchallenge/master/food_techchallenge/manifests/food_techchallenge-svc.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/Tech-Challenge-FIAP-GLR/food_techchallenge/master/food_techchallenge/manifests/food_techchallenge-hpa.yaml --validate=false
+        kubectl get pods
+        kubectl get svc
