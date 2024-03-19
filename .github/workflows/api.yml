@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+#teste
 env:
   ECR_REPOSITORY: techchallenge
   EKS_CLUSTER_NAME: module-eks-Ieisn
