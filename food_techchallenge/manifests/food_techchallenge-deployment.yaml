@@ -12,31 +12,44 @@ spec:
         app: food-techchallenge
     spec:
       containers:
-        - name: mysqldb
-          image: 'mysql:8.0'
-          ports:
-            - containerPort: 3306
-          env:
-            - name: MYSQL_DATABASE
-              value: 'food_techchallenge'
-            - name: MYSQL_PASSWORD
-              value: '170593'
-            - name: MYSQL_ROOT_PASSWORD
-              value: '170593'
         - name: food-techchallenge-container-app
           image: 851725207646.dkr.ecr.us-east-2.amazonaws.com/techchallenge:latest
           ports:
             - containerPort: 8080
           env:
             - name: SPRING_DATASOURCE_URL
-              value: 'jdbc:mysql://food-techchallenge-svc:3306/food_techchallenge?createDatabaseIfNotExist=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&enabledTLSProtocols=TLSv1,TLSv1.1,TLSv1.2'
+              value: 'jdbc:mysql://rdstechchallenge.cfyeg6qcweif.us-east-2.rds.amazonaws.com:3306/food_techchallenge?createDatabaseIfNotExist=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&enabledTLSProtocols=TLSv1,TLSv1.1,TLSv1.2'
             - name: SPRING_DATASOURCE_USERNAME
               value: 'root'
             - name: SPRING_DATASOURCE_PASSWORD
-              value: '170593'
+              value: '170593??'
           resources:
             requests:
               cpu: 400m
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http-port
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http-port
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: http-port
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
   replicas: 1
   selector:
     matchLabels:
