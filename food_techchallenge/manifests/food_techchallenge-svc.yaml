@@ -8,11 +8,6 @@ spec:
     app: food-techchallenge
   ports:
     - protocol: TCP
-      name: mysql
-      port: 3306
-      targetPort: 3306
-      nodePort: 30000
-    - protocol: TCP
       name: app
       port: 8080
       targetPort: 8080
