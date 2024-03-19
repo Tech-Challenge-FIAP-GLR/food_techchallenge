@@ -30,7 +30,7 @@ spec:
             requests:
               memory: "512Mi"
               cpu: "150m"
-           readinessProbe:
+          readinessProbe:
             httpGet:
               path: /actuator/health
               port: http-port
