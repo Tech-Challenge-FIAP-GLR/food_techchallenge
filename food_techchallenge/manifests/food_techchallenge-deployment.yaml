@@ -24,8 +24,12 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               value: '170593??'
           resources:
+            limits:
+              memory: "1024Mi"
+              cpu: "160m"
             requests:
-              cpu: 400m
+              memory: "512Mi"
+              cpu: "150m"
           readinessProbe:
             httpGet:
               path: /actuator/health
@@ -50,7 +54,7 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 5
             failureThreshold: 3
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: food-techchallenge
