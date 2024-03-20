@@ -3,7 +3,7 @@
 O projeto é uma API backend de fast-food, a API conta com todos os métodos necessários para fazer o gerenciamento de fastfood, a documentação conta com o DDD no Miro do projeto, instruções de uso e mapeamento de endpoints. O projeto conta com arquitetura Clean Architecture, tecnologia Java, utilizando Spring, Hibernate, Maven, JDBC entre outros frameworks, MySQL para banco de dados e Kubernetes junto com Docker para conteinerização e provisionamento da aplicação.
 
 ## Desenho da arquitetura
-![Diagrama sem nome drawio](https://github.com/lukkas-lax/food_techchallenge/assets/77997696/8246d4d6-59fd-47fd-b621-719a73e83282)
+![Diagrama sem nome drawio]([https://github.com/lukkas-lax/food_techchallenge/assets/77997696/8246d4d6-59fd-47fd-b621-719a73e83282](https://github.com/Tech-Challenge-FIAP-GLR/rds_techchallenge/settings/branches))
 
 ## Pré-Requisitos para chamada na AWS
 1. Ter qualquer software para fazer requisições de API (ex: Postman)
