@@ -2,9 +2,9 @@
 ## Sobre o projeto
 O projeto é uma API backend de fast-food, a API conta com todos os métodos necessários para fazer o gerenciamento de fastfood, a documentação conta com o DDD no Miro do projeto, instruções de uso e mapeamento de endpoints. O projeto conta com arquitetura Clean Architecture, tecnologia Java, utilizando Spring, Hibernate, Maven, JDBC entre outros frameworks e Kubernetes e Docker hospedado em provedor de nuvem (Amazon EKS).
 
-A arquitetura está sendo montada por outro repositório onde é responsável pela criação do EKS utilizando Terraform.
-A autênticação está sendo montada por outro repositório onde foram usados Lambda e Cognito.
-O Banco de dados é do tipo relacional e está sendo montado com Terraform e está disponível em provedor de nuvem com (AMAZON RDS)
+* A arquitetura está sendo montada por outro repositório onde é responsável pela criação do EKS utilizando Terraform.
+* A autênticação está sendo montada por outro repositório onde foram usados Lambda e Cognito.
+* O Banco de dados é do tipo relacional e está sendo montado com Terraform e está disponível em provedor de nuvem com (AMAZON RDS)
 
 ## Desenho da arquitetura
 ![image](https://github.com/Tech-Challenge-FIAP-GLR/food_techchallenge/assets/156608941/72d3c747-ae62-4300-bf0c-0ba48c8cc740)
